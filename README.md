@@ -6,6 +6,7 @@
 - [ ] I should be able to sign up by going to the `/signup` route
   - [ ] I need a schema which contains the users table
     - [ ] columns - username, password
+  - [x] write a function to insert a row into the `users` table
   - [ ] need a page to render the signup form(GET route)
   - [ ] need a POST route to insert user into the DB
 - [ ] I should be able to log in by going to the `/login` route
