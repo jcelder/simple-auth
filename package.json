@@ -6,7 +6,9 @@
   "scripts": {
     "test": "mocha",
     "start": "npm start",
-    "start:dev": "nodemon"
+    "start:dev": "nodemon",
+    "db:create": "createdb simple_auth_development",
+    "db:init": "npm run db:create && psql -d simple_auth_development -f src/models/db/schema.sql"
   },
   "repository": {
     "type": "git",
