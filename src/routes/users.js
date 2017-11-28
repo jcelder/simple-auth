@@ -2,7 +2,11 @@ const router = require('express').Router()
 
 router.route('/signup')
   .get((req, res) => {
-    res.send('Sign up page goes here')
+    res.render('users/new.pug')
+  })
+  .post((req, res) => {
+    console.log('Body Params:', req.body)
+    res.send('submitted from the form')
   })
 
 module.exports = router
