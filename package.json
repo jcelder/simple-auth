@@ -8,7 +8,9 @@
     "start": "npm start",
     "start:dev": "nodemon",
     "db:create": "createdb simple_auth_development",
-    "db:init": "npm run db:create && psql -d simple_auth_development -f src/models/db/schema.sql"
+    "db:init": "npm run db:create && psql -d simple_auth_development -f src/models/db/schema.sql",
+    "db:drop": "dropdb simple_auth_development",
+    "db:reset": "npm run db:drop && npm run db:init"
   },
   "repository": {
     "type": "git",
