@@ -5,6 +5,8 @@ form(action="/signup" method="POST")
   p
     label Password:
       input(name="password" type="password")
+  if message
+    p= message
   input(type="submit" value="Submit")
-  
+ 
   
