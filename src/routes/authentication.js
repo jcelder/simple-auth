@@ -10,11 +10,12 @@ router.route('/login')
     const email = req.body.email
     const password = req.body.password
     users.findByEmail(email)
-      .then((member) => {
-        if (!member || member.password !== password) {
+      .then((user) => {
+        if (!user || user.password !== password) {
           res.redirect('/login')
         } else {
           // create a session for the user
+          req.session.user = user
           res.redirect('/')
         }
       })
