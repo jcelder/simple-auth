@@ -10,3 +10,5 @@ router.route('/login')
     // validation to check the username & password
     res.send('todo')
   })
+
+module.exports = router
