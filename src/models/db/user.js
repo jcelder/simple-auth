@@ -5,7 +5,10 @@ const createUser = (user) => {
 }
 
 const findByEmail = (email) => {
-  return db.query('SELECT * FROM users where email=$1', email)
+  return db.oneOrNone('SELECT * FROM users where email=$1', email)
 }
 
-module.exports = { createUser }
+module.exports = {
+  createUser,
+  findByEmail,
+}
