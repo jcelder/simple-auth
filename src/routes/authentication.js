@@ -6,8 +6,18 @@ router.route('/login')
     res.render('authentication/login')
   })
   .post((req, res) => {
-    const user = req.body
-    // validation to check the username & password
+  // validation to check the email & password
+    const email = req.body.email
+    const password = req.body.password
+    users.findByEmail(email)
+      .then((member) => {
+        if (!member || member.password !== password) {
+          res.redirect('/login')
+        } else {
+          // create a session for the user
+          res.redirect('/')
+        }
+      })
     res.send('todo')
   })
 
