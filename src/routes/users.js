@@ -1,12 +1,20 @@
 const router = require('express').Router()
+const users = require('../models/users')
 
 router.route('/signup')
   .get((req, res) => {
-    res.render('users/new.pug')
+    res.render('users/signup')
   })
   .post((req, res) => {
-    console.log('Body Params:', req.body)
-    res.send('submitted from the form')
+    const user = req.body
+    console.log(user)
+    users.create(user)
+      .then((DBUser) => {
+        res.redirect('/login')
+      })
+      .catch((error) => {
+        next(error)
+      })
   })
 
 module.exports = router
