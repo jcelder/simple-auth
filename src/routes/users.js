@@ -9,11 +9,16 @@ router.route('/signup')
     const user = req.body
     console.log(user)
     users.create(user)
-      .then((DBUser) => {
+      .then(() => {
         res.redirect('/login')
       })
       .catch((error) => {
-        next(error)
+        if (error.message.includes('duplicate key value')) {
+          const message = 'Email already exists'
+          res.render('users/signup', { message })
+        } else {
+          next(error)
+        }
       })
   })
 
