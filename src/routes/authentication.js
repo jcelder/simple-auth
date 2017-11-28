@@ -1,6 +1,10 @@
 const router = require('express').Router()
 const users = require('../models/users')
 
+const createSession = (session, user) => {
+  session.user = user
+}
+
 router.route('/login')
   .get((req, res) => {
     res.render('authentication/login')
@@ -15,7 +19,7 @@ router.route('/login')
           res.redirect('/login')
         } else {
           // create a session for the user
-          req.session.user = user
+          createSession(req.session, user)
           res.redirect('/')
         }
       })
