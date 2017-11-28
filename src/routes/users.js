@@ -16,8 +16,6 @@ router.route('/signup')
         if (error.message.includes('duplicate key value')) {
           const message = 'Email already exists'
           res.render('users/signup', { message })
-        } else {
-          next(error)
         }
       })
   })
