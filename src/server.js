@@ -1,7 +1,6 @@
 const app = require('express')()
 
-app.get('/', (req, res) => {
-  res.send('Dashboard goes here')
-})
+const routes = require('./routes/index')
 
+app.use('/', routes)
 app.listen(3000)
