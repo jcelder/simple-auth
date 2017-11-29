@@ -3,7 +3,7 @@ const users = require('./users')
 const authentication = require('./authentication')
 
 router.get('/', (req, res) => {
-  res.send('Dashboard goes here')
+  res.send(`Welcome ${req.user.email} to this app.`)
 })
 
 router.use('/', users)
