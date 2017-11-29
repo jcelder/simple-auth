@@ -23,7 +23,6 @@ router.route('/login')
           res.redirect('/')
         }
       })
-    res.send('todo')
   })
 
 module.exports = router
